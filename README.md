@@ -57,17 +57,55 @@ and data visualization libraries (Matplotlib, Seaborn).
 
 📁 [View Notebook](./Titanic%20Analysis/titanic_analysis.ipynb)
 
+### 4. ☕ Cafe Sales Data Cleaning
+**Tools:** Python, Pandas, NumPy, Matplotlib, Seaborn  
+**Dataset:** 10,000 dirty cafe transactions | 8 columns
+
+**Project Focus:** Data Cleaning & Preprocessing  
+This project focuses on cleaning an intentionally messy dataset 
+rather than deep analysis — reflecting the reality that data 
+cleaning accounts for 60-70% of a real data analyst's work.
+
+**Dirty Data Found:**
+- `"ERROR"` and `"UNKNOWN"` strings hiding as fake missing values
+- Wrong data types across all numeric columns
+- Missing values across 6 out of 8 columns after proper detection
+
+**Key Cleaning Techniques:**
+- Detected hidden dirty data via `.value_counts()` (not just `isnull()`)
+- Smart imputation using math relationship: `Total Spent = Price × Quantity`
+- Bidirectional dictionary mapping to fill Item ↔ Price Per Unit
+- Business-driven NaN decisions — kept 477 Item NaNs to preserve revenue integrity
+- Flagged Payment Method (31%) and Location (39%) as "Unknown" — 
+  too high % to fill reliably without introducing bias
+
+**Post-Cleaning Findings:**
+- Best selling item by revenue: **Salad** (~$19,000)
+- Best selling item by quantity: **Coffee**
+- Revenue stable year-round (~$6,700–$7,350/month)
+- Payment methods evenly split among known transactions
+- No outliers detected in Total Spent — data internally consistent ✅
+
+⚠️ **Data Limitation:** 31-39% missing in Payment Method and 
+Location columns limits analysis of these dimensions.
+
+📁 [View Notebook](./Cafe%20Sales%20Cleaning/cafe_cleaning.ipynb)
+
 ---
 
 ## 🛠️ Skills Demonstrated
 - Data cleaning & handling missing values
+- **Hidden dirty data detection** ← new!
+- **Smart imputation using mathematical relationships** ← new!
+- **Dictionary mapping for bidirectional filling** ← new!
 - Outlier detection & treatment
 - Exploratory data analysis (EDA)
+- Feature engineering
 - GroupBy aggregations & multi-column analysis
-- Feature engineering (new columns from existing data)
 - Correlation analysis
-- Data visualization (bar, line, scatter charts)
+- Data visualization (bar, line, scatter, histogram)
 - Business insight generation & recommendations
+- **Data limitation documentation** ← new!
 
 ---
 
